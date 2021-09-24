@@ -418,7 +418,7 @@ func (c *Client) recv(keepaliveQuit chan<- struct{}) {
 		// Do normal route processing in a go-routine so we can immediately
 		// start receiving other stanzas. This also allows route handlers to
 		// send and receive more stanzas.
-		go c.router.route(c, val)
+		c.router.route(c, val)
 	}
 }
 
